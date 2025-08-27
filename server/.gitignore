@@ -1,2 +1,72 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+develop-eggs/
+*.manifest
+*.spec
+
+# === Virtual Environments ===
 .env
-*/__pychache__
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === Conda Environments ===
+*.conda
+*.lock
+conda-meta/
+
+# === IDEs & Editors ===
+# VS Code
+.vscode/
+# PyCharm
+.idea/
+# Jupyter
+.ipynb_checkpoints/
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# === Logs & Databases ===
+*.log
+*.sqlite3
+*.db
+*.sql
+*.dump
+
+# === OS-Specific ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Test / Coverage ===
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+.coverage.*
+.cache
+
+# === Misc ===
+*.bak
+*.tmp
+*.swp
+*.lock
