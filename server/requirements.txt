@@ -1,0 +1,13 @@
+# Use the latest stable proxy for AutoGen (recommended):
+pyautogen==0.10.0
+
+# Or, if you specifically want the v0.6 series:
+# autogen==0.6.1
+
+# Then add AutoGen ecosystem components:
+autogen-agentchat
+autogen-ext[openai]
+
+# Supporting libs
+pytest>=8.0.0
+python-dotenv>=1.0.0
