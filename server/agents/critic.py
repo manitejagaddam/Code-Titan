@@ -1,4 +1,4 @@
-from autogen import AssistantAgent
+from autogen_agentchat.agents import AssistantAgent
 from .open_router_agent import open_router_agent
 
 def create_critic():

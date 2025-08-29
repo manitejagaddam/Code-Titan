@@ -6,8 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-open_router_api_key = os.getenv("OPEN_ROUTER_API_KEY")
+open_router_api_key = os.getenv("OPENROUTER_API_KEY")
 
+# print("OPEN_ROUTER_API_KEY:", os.getenv("OPENROUTER_API_KEY"))
+
+if not open_router_api_key:
+    raise RuntimeError("OPEN_ROUTER_API_KEY is not set in the environment")
 
 def open_router_agent():
     return OpenAIChatCompletionClient(
