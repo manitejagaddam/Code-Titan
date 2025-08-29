@@ -1,5 +1,5 @@
 from autogen import AssistantAgent
-from open_router_agent import open_router_agent
+from .open_router_agent import open_router_agent
 
 def create_planner():
     return AssistantAgent(

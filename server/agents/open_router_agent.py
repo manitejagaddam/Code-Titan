@@ -10,7 +10,7 @@ open_router_api_key = os.getenv("OPEN_ROUTER_API_KEY")
 
 
 def open_router_agent():
-    agent = OpenAIChatCompletionClient(
+    return OpenAIChatCompletionClient(
         base_url="https://openrouter.ai/api/v1",
         # model="google/gemma-3-27b-it:free",
         model="google/gemini-2.0-flash-exp:free",
@@ -26,4 +26,4 @@ def open_router_agent():
             "structured_output":True
         }
     )
-    return agent
+    

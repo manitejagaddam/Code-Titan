@@ -11,3 +11,14 @@ pre-commit>=3.7.0
 asyncio
 dotenv
 flaml[automl]
+autogen-agentchat
+autogen-core
+autogen-ext
+asyncio
+dotenv
+openai
+tiktoken
+autogenstudio
+streamlit
+arxiv
+pillow

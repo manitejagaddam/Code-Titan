@@ -1,5 +1,5 @@
 from autogen import UserProxyAgent
-from open_router_agent import open_router_agent
+from .open_router_agent import open_router_agent
 from tools.run_ops import run_command
 
 def create_executor():

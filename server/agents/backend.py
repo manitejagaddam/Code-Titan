@@ -1,9 +1,9 @@
 from autogen import AssistantAgent
-from open_router_agent import open_router_agent
+from .open_router_agent import open_router_agent
 
 
 def create_backend():
-    return AssistantAgent(
+    agent = AssistantAgent(
         name="BackendAgent",
         model_client= open_router_agent,
         system_message=(
@@ -11,3 +11,5 @@ def create_backend():
             "Generate FastAPI endpoints, Pydantic models, and Postgres schema."
         )
     )
+    
+    return agent
