@@ -38,11 +38,11 @@ from autogen_agentchat.messages import MultiModalMessage
 from autogen_agentchat.teams import RoundRobinGroupChat
 
 
-from .agents.backend import create_backend
-from .agents.critic import create_critic
-from .agents.executor import create_executor
-from .agents.frontend import create_frontend
-from .agents.planner import create_planner
+from agents.backend import create_backend
+from agents.critic import create_critic
+from agents.executor import create_executor
+from agents.frontend import create_frontend
+from agents.planner import create_planner
 
 
 
@@ -54,11 +54,16 @@ def get_agents():
     executor = create_executor()
 
     agents = [planner, frontend, backend, critic, executor]
+    # agents = [planner]
+    
+    return agents
 
+
+# print(get_agents())
 
 team = RoundRobinGroupChat(
     participants=get_agents(),
-    max_turns=2
+    max_turns=3
 )
 
 
