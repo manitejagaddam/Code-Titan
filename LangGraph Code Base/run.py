@@ -6,7 +6,7 @@ CLI entry point to execute the CodeTitan LangGraph workflow.
 import argparse
 import logging
 from graph import build_graph
-from config import CONFIG
+from configuration.config import CONFIG
 
 # --- Logging setup ---
 logging.basicConfig(level=CONFIG['log_level'].upper())
