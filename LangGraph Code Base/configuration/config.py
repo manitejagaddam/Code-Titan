@@ -16,9 +16,11 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent
 
 # Load .env if present
-env_path = BASE_DIR / ".env"
-if env_path.exists():
-    load_dotenv(env_path)
+# env_path = ".env"
+# if env_path.exists():
+#     load_dotenv(env_path)
+
+load_dotenv()
 
 # --- Provider selection ---
 # We'll default to Gemini as requested. Keep this configurable so tests and CI can override.
