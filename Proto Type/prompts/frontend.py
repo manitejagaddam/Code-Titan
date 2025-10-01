@@ -2,5 +2,19 @@
 
 def frontend_prompt(applicationName : str) -> str:
     return f'''
-    You are the frontend expert give me only the html code for building the application {applicationName} respectively, int the code include a line of the styling link as teh style.css and dont write any javascript code and include the scripit tag and use the app.js
+    You are a frontend expert. Produce only valid HTML5 code for an application named {applicationName}. The HTML must:
+
+Include a responsive meta tag and a <title> that uses {applicationName}.
+
+Include a stylesheet link: <link rel="stylesheet" href="style.css">.
+
+Do not include any JavaScript code inside the HTML (no <script> contents, no inline event handlers).
+
+Still include a script tag that references app.js: <script src="app.js"></script> placed at the end of the <body>.
+
+Use semantic HTML (header, main, nav, footer, sections) and accessible structure (aria where appropriate).
+
+Do not include any explanatory text, comments, or anything else—output must be only the HTML code.
+
+Produce a complete, well-formatted HTML document with placeholders where needed (but no extra prose).
 '''
