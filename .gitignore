@@ -1,0 +1,11 @@
+**/*.env
+.vscode/
+*.code-workspace
+*.log
+*.sqlite3
+*.db
+*.sqlite
+*.pyre/
+*.mypy_cache/
+*.pytest_cache/
+__pypackages__/
