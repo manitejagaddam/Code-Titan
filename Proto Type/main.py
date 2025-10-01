@@ -13,9 +13,15 @@ def write_to_file_in_path(folder_path, filename, content):
     print(f"Content added to {file_path}.")
     
     
+    
+    
 def open_file():
     file_path = os.path.abspath("sandbox/index.html")  # replace with your file name
-    file_url = f"file://{file_path}"   # Convert file path to URL format
+
+    # Convert file path to URL format
+    file_url = f"file://{file_path}"
+
+    # Open in default web browser
     webbrowser.open(file_url)
     
     
@@ -32,20 +38,9 @@ def createApp(ApplicationName):
     
     open_file()
 
-
-# ---------- STREAMLIT INTERFACE ----------
 def main():
-    st.title("CodeTitan App Generator")
-    st.write("Enter your application name below to generate your app:")
-
-    app_name = st.text_input("Application Name", "")
-
-    if st.button("Generate App"):
-        if app_name.strip() != "":
-            createApp(app_name)
-            st.success(f"Application '{app_name}' created successfully! 🚀")
-        else:
-            st.warning("Please enter a valid application name.")
+    applicationName = input("Enter your application name: ")
+    createApp(applicationName)
 
 if __name__ == "__main__":
     main()

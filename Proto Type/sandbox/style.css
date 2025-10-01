@@ -1,104 +1,71 @@
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f9f9f9;
-  margin:0;
-  padding:0;
-  color:#333;
+/* layout */
+.calculator{
+    max-width: 320px;
+    margin: 5vh auto;
+    background:#222;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
-header{
-  background:#4CAF50;
-  color:white;
-  text-align:center;
-  padding:1rem;
+.display{
+    width:100%;
+    height:60px;
+    background:#444;
+    color:#fff;
+    font-size:2rem;
+    text-align:right;
+    padding:0 10px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    box-sizing:border-box;
 }
-main{
-  max-width:600px;
-  margin:auto;
-  padding:1rem;
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
 }
-#add-todo-section{
-  margin-bottom:1rem;
+.btn{
+    background:#333;
+    color:#eee;
+    font-size:1.4rem;
+    padding:15px 0;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
 }
-#todo-form{
-  display:flex;
-  gap:0.5rem;
+.btn:active{
+    transform:scale(.95);
 }
-#new-todo-input{
-  flex:1;
-  padding:0.75rem;
-  border:1px solid #ccc;
-  border-radius:4px;
+.function{
+    background:#e67e22;
+    color:#fff;
 }
-#add-todo-btn{
-  padding:0.75rem 1rem;
-  background:#4CAF50;
-  color:white;
-  border:none;
-  border-radius:4px;
-  cursor:pointer;
+.operator{
+    background:#34495e;
+    color:#fff;
 }
-#add-todo-btn:hover{
-  background:#45a049;
+.equals{
+    background:#27ae60;
+    color:#fff;
+    grid-row:1 / span 2;
 }
-#todo-list{
-  list-style:none;
-  padding:0;
-  margin:0;
+.decimal{
+    background:#95a5a6;
+    color:#fff;
 }
-.todo-item{
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-  padding:0.75rem;
-  background:white;
-  border-radius:4px;
-  margin-bottom:0.5rem;
-  box-shadow:0 1px 3px rgba(0,0,0,0.1);
-}
-.todo-text{
-  flex:1;
-}
-.complete-btn{
-  background:#4CAF50;
-  color:white;
-  border:none;
-  border-radius:50%;
-  width:1.5rem;
-  height:1.5rem;
-  cursor:pointer;
-}
-.complete-btn:hover{
-  background:#45a049;
-}
-.edit-btn{
-  background:#2196F3;
-  color:white;
-  border:none;
-  border-radius:50%;
-  width:1.5rem;
-  height:1.5rem;
-  margin-right:0.5rem;
-  cursor:pointer;
-}
-.edit-btn:hover{
-  background:#1976D2;
-}
-.delete-btn{
-  background:#f44336;
-  color:white;
-  border:none;
-  border-radius:50%;
-  width:1.5rem;
-  height:1.5rem;
-  cursor:pointer;
-}
-.delete-btn:hover{
-  background:#d32f2f;
-}
-footer{
-  text-align:center;
-  padding:1rem;
-  background:#eee;
-  color:#666;
-  font-size:0.9rem;
+@media (max-width:360px){
+    .calculator{
+        width:90%;
+        padding:15px;
+    }
+    .display{
+        height:50px;
+        font-size:1.8rem;
+    }
+    .btn{
+        padding:12px 0;
+        font-size:1.2rem;
+    }
 }

@@ -1,52 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Todo List App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Todo List</h1>
-  </header>
+    <div class="calculator">
+        <input type="text" id="display" class="display" readonly>
+        <div class="buttons">
+            <button class="btn function" data-action="clear">C</button>
+            <button class="btn function" data-action="delete">←</button>
+            <button class="btn operator" data-value="÷">÷</button>
+            <button class="btn operator" data-value="×">×</button>
 
-  <main>
-    <!-- Add a new todo -->
-    <section id="add-todo-section">
-      <form id="todo-form" novalidate>
-        <input
-          type="text"
-          id="new-todo-input"
-          placeholder="Add a new task..."
-          required
-          autocomplete="off"
-        >
-        <button type="submit" id="add-todo-btn">Add</button>
-      </form>
-    </section>
+            <button class="btn digit" data-value="7">7</button>
+            <button class="btn digit" data-value="8">8</button>
+            <button class="btn digit" data-value="9">9</button>
+            <button class="btn operator" data-value="-">-</button>
 
-    <!-- Todo list -->
-    <section id="todo-list-section">
-      <ul id="todo-list">
-        <!-- Todo items will be inserted here by JavaScript -->
-        <!-- Example structure (will be replaced dynamically): -->
-        <!--
-        <li class="todo-item" data-id="1">
-          <span class="todo-text">Sample todo</span>
-          <button class="complete-btn" aria-label="Mark complete">✓</button>
-          <button class="edit-btn" aria-label="Edit todo">✎</button>
-          <button class="delete-btn" aria-label="Delete todo">✕</button>
-        </li>
-        -->
-      </ul>
-    </section>
-  </main>
+            <button class="btn digit" data-value="4">4</button>
+            <button class="btn digit" data-value="5">5</button>
+            <button class="btn digit" data-value="6">6</button>
+            <button class="btn operator" data-value="+">+</button>
 
-  <footer>
-    <p>&copy; 2025 Todo App</p>
-  </footer>
+            <button class="btn digit" data-value="1">1</button>
+            <button class="btn digit" data-value="2">2</button>
+            <button class="btn digit" data-value="3">3</button>
+            <button class="btn equals" data-action="calculate">=</button>
 
-  <!-- JavaScript file that will handle CRUD operations -->
-  <script src="app.js"></script>
+            <button class="btn digit" data-value="0" style="grid-column: span 2;">0</button>
+            <button class="btn decimal" data-value=".">.</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
