@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 
 
-def client():
+def get_client():
     load_dotenv()
 
     api_key = os.getenv("GROQ_KEY")
