@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Todo List</h1>
+  </header>
+
+  <main>
+    <!-- Add a new todo -->
+    <section id="add-todo-section">
+      <form id="todo-form" novalidate>
+        <input
+          type="text"
+          id="new-todo-input"
+          placeholder="Add a new task..."
+          required
+          autocomplete="off"
+        >
+        <button type="submit" id="add-todo-btn">Add</button>
+      </form>
+    </section>
+
+    <!-- Todo list -->
+    <section id="todo-list-section">
+      <ul id="todo-list">
+        <!-- Todo items will be inserted here by JavaScript -->
+        <!-- Example structure (will be replaced dynamically): -->
+        <!--
+        <li class="todo-item" data-id="1">
+          <span class="todo-text">Sample todo</span>
+          <button class="complete-btn" aria-label="Mark complete">✓</button>
+          <button class="edit-btn" aria-label="Edit todo">✎</button>
+          <button class="delete-btn" aria-label="Delete todo">✕</button>
+        </li>
+        -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Todo App</p>
+  </footer>
+
+  <!-- JavaScript file that will handle CRUD operations -->
+  <script src="app.js"></script>
+</body>
+</html>
