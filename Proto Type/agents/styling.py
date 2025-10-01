@@ -17,7 +17,7 @@ def get_response(ApplicationName, frontend):
     
     # print(llm_output)
     cleaned_res = clean_output(llm_output)
-    print(cleaned_res)
+    # print(cleaned_res)
     return cleaned_res
 
 
