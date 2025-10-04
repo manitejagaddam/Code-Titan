@@ -40,7 +40,7 @@ class Orchestrator:
 
         return f"App generated in {output_dir}/"
     
-    def __open_file(output_dir = "output"):
+    def __open_file(self, output_dir = "output"):
         file_path = os.path.abspath(f"{output_dir}/index.html")  # replace with your file name
         file_url = f"file://{file_path}"   # Convert file path to URL format
         print("file url : ", file_url)
@@ -51,4 +51,4 @@ class Orchestrator:
     
     def build_and_run(self, user_prompt: str, output_dir = "output"):
         self.__build(user_prompt=user_prompt, output_dir=output_dir)
-        self.__open_file()
+        self.__open_file(output_dir)

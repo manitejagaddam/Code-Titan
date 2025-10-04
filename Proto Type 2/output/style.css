@@ -1,0 +1,30 @@
+:root{
+  --bg:#f9f9f9;
+  --accent:#0066cc;
+  --text:#333;
+  --header-bg:#fff;
+  --footer-bg:#222;
+  --footer-text:#ccc;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;}
+header{background:var(--header-bg);text-align:center;padding:2rem 1rem;}
+header h1{font-size:2.5rem;margin-bottom:.5rem;}
+header p{font-size:1.25rem;color:var(--accent);}
+nav{background:var(--accent);color:white;}
+nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;padding:1rem;}
+nav a{color:white;text-decoration:none;padding:.5rem 1rem;border-radius:4px;}
+nav a:hover,nav a:focus{background:rgba(255,255,255,.2);}
+nav a:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+main{max-width:1200px;margin:auto;padding:2rem 1rem;}
+section{margin-bottom:3rem;}
+section h2{font-size:1.75rem;margin-bottom:1rem;color:var(--accent);}
+section ul{list-style:none;}
+section ul li{padding:.5rem 0;border-bottom:1px solid #eee;}
+section ul li:last-child{border-bottom:none;}
+footer{background:var(--footer-bg);color:var(--footer-text);text-align:center;padding:1rem;font-size:.875rem;}
+@media (max-width:768px){
+  header h1{font-size:2rem;}
+  nav ul{flex-direction:column;align-items:center;}
+  nav a{width:100%;text-align:center;}
+}
