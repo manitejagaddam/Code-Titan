@@ -14,8 +14,8 @@ class CSSAgent:
     def __get_prompt(self, html: str):
         return get_css_prompt(applicationName=self.applicationName, html=html)
         
-    def __clean_output(raw_input : str) -> str:
-        return re.sub(r"^```html\s*|\s*```$", "", raw_input.strip(), flags=re.MULTILINE)
+    def __clean_output(self, raw_input : str) -> str:
+        return re.sub(r"^```css\s*|\s*```$", "", raw_input.strip(), flags=re.MULTILINE)
     
     
     def generate(self, html : str):

@@ -8,5 +8,5 @@ class FileManager:
         path = os.path.join(output_dir, file_name)
         with open(path, "w", encoding="utf-8") as f:
             f.write(content)
-        print(f"💾 Saved: {path}")
+        print(f"💾 Saved: {file_name} in {path}")
         

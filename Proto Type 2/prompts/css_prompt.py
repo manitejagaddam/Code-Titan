@@ -2,17 +2,15 @@
 
 def get_css_prompt(applicationName : str, html : str) -> str:
     return f'''
-    You are a JavaScript expert. Produce only valid JavaScript code for an application named {applicationName} using the HTML code provided as {html}. The code must:
+    You are a CSS styling expert. Produce only valid CSS code for an application named {applicationName} using the HTML code provided as {html}. The CSS must:
 
-    Be self-contained and functional with the provided HTML.
+    Be self-contained and functional for the provided HTML.
 
-    Include only useful, working JavaScript.
+    Include only useful styling—no comments, no extra explanations, no placeholder text.
 
-    Do not include any comments, explanations, or extra descriptions.
+    Ensure responsive and accessible design where applicable.
 
-    Do not generate HTML or CSS—only JavaScript.
+    Do not generate HTML or JavaScript—only CSS.
 
-    Include code for initializing, handling basic DOM interactions, and wiring up any required functionality based on the given HTML structure.
-
-    Output must be only JavaScript code, ready to be saved as app.js.
+    Output must be only CSS code, ready to be saved as style.css.
 '''

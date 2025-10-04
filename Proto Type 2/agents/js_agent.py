@@ -7,15 +7,15 @@ from prompts.js_prompt import get_js_prompt
 
 class JSAgent:
     
-    def __init__(self, applicationName : str, html : str):
+    def __init__(self, applicationName : str):
         self.client = GroqAgent.getClient()
         self.applicationName = applicationName
         
     def __get_prompt(self, html: str):
         return get_js_prompt(applicationName=self.applicationName, html=html)
         
-    def __clean_output(raw_input : str) -> str:
-        return re.sub(r"^```html\s*|\s*```$", "", raw_input.strip(), flags=re.MULTILINE)
+    def __clean_output(self, raw_input : str) -> str:
+        return re.sub(r"^```javascript\s*|\s*```$", "", raw_input.strip(), flags=re.MULTILINE)
     
     
     def generate(self, html: str):

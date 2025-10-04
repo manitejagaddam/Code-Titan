@@ -14,7 +14,7 @@ class HTMLAgent:
     def __get_prompt(self):
         return get_html_prompt(applicationName=self.applicationName)
         
-    def __clean_output(raw_input : str) -> str:
+    def __clean_output(self, raw_input : str) -> str:
         return re.sub(r"^```html\s*|\s*```$", "", raw_input.strip(), flags=re.MULTILINE)
     
     

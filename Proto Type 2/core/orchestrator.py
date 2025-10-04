@@ -43,6 +43,7 @@ class Orchestrator:
     def __open_file(output_dir = "output"):
         file_path = os.path.abspath(f"{output_dir}/index.html")  # replace with your file name
         file_url = f"file://{file_path}"   # Convert file path to URL format
+        print("file url : ", file_url)
         webbrowser.open(file_url)
         
     def build_app(self, user_promt: str, output_dir = "output"):

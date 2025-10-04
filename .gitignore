@@ -9,3 +9,5 @@
 *.mypy_cache/
 *.pytest_cache/
 __pypackages__/
+
+**/* __pychache__
