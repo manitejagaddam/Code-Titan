@@ -5,7 +5,7 @@ from clients.groq import GroqAgent
 from prompts.css_prompt import get_css_prompt
 
 
-class HtmlAgent:
+class CSSAgent:
     
     def __init__(self, applicationName : str, html : str):
         self.client = GroqAgent.getClient()

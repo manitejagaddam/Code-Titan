@@ -5,7 +5,7 @@ from clients.groq import GroqAgent
 from prompts.html_prompt import get_html_prompt
 
 
-class HtmlAgent:
+class HTMLAgent:
     
     def __init__(self, applicationName : str):
         self.client = GroqAgent.getClient()
