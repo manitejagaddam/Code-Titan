@@ -1,44 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('main section');
+    const form = document.querySelector('#add-task form');
+    const taskList = document.getElementById('task-list');
 
-  const style = document.createElement('style');
-  style.textContent = `
-    nav a.active{color:#007bff;font-weight:bold;}
-    #scrollTop{position:fixed;bottom:20px;right:20px;padding:10px;font-size:1.2rem;display:none;cursor:pointer;background:#007bff;color:#fff;border:none;border-radius:4px;}
-  `;
-  document.head.appendChild(style);
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const titleInput = document.getElementById('task-title');
+        const descInput = document.getElementById('task-desc');
+        const title = titleInput.value.trim();
+        const desc = descInput.value.trim();
 
-  const scrollTopBtn = document.createElement('button');
-  scrollTopBtn.id = 'scrollTop';
-  scrollTopBtn.textContent = '↑';
-  document.body.appendChild(scrollTopBtn);
+        if (!title) return;
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = document.querySelector(`nav a[href="#${id}"]`);
-        if (link) link.classList.toggle('active', entry.isIntersecting && entry.intersectionRatio > 0.5);
-      });
-    },
-    { threshold: 0.5 }
-  );
-  sections.forEach(sec => observer.observe(sec));
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <article>
+                <h3>${title}</h3>
+                <p>${desc}</p>
+                <button type="button" aria-label="Edit task" class="edit-task">Edit</button>
+                <button type="button" aria-label="Delete task" class="delete-task">Delete</button>
+            </article>
+        `;
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        taskList.appendChild(li);
+        titleInput.value = '';
+        descInput.value = '';
     });
-  });
 
-  window.addEventListener('scroll', () => {
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    taskList.addEventListener('click', e => {
+        const target = e.target;
+        if (target.matches('.edit-task')) {
+            const article = target.closest('article');
+            const title = article.querySelector('h3').textContent;
+            const desc = article.querySelector('p').textContent;
+            article.dataset.title = title;
+            article.dataset.desc = desc;
+            article.innerHTML = `
+                <label>Title</label>
+                <input type="text" class="edit-title" value="${title}">
+                <label>Description</label>
+                <textarea class="edit-desc">${desc}</textarea>
+                <button type="button" class="save-task">Save</button>
+                <button type="button" class="cancel-task">Cancel</button>
+            `;
+        } else if (target.matches('.delete-task')) {
+            const li = target.closest('li');
+            if (li) li.remove();
+        } else if (target.matches('.save-task')) {
+            const article = target.closest('article');
+            const newTitle = article.querySelector('.edit-title').value.trim() || article.dataset.title;
+            const newDesc = article.querySelector('.edit-desc').value.trim() || article.dataset.desc;
+            article.innerHTML = `
+                <h3>${newTitle}</h3>
+                <p>${newDesc}</p>
+                <button type="button" aria-label="Edit task" class="edit-task">Edit</button>
+                <button type="button" aria-label="Delete task" class="delete-task">Delete</button>
+            `;
+        } else if (target.matches('.cancel-task')) {
+            const article = target.closest('article');
+            const title = article.dataset.title;
+            const desc = article.dataset.desc;
+            article.innerHTML = `
+                <h3>${title}</h3>
+                <p>${desc}</p>
+                <button type="button" aria-label="Edit task" class="edit-task">Edit</button>
+                <button type="button" aria-label="Delete task" class="delete-task">Delete</button>
+            `;
+        }
+    });
 });
