@@ -11,18 +11,18 @@ from core.file_manager import FileManager
 
 class Orchestrator:
     
-    def __init__(self):
+    def __init__(self, applicationName):
         # Creating all the Agents 
-        self.html_agent = HTMLAgent()
-        self.css_agent = CSSAgent()
-        self.js_agent = JSAgent()
+        self.html_agent = HTMLAgent(applicationName=applicationName)
+        self.css_agent = CSSAgent(applicationName=applicationName)
+        self.js_agent = JSAgent(applicationName=applicationName)
         self.critic = CriticAgent()
         self.file_manager = FileManager()
     
     
     def __build(self, user_prompt: str, output_dir="output"):
         # Step 1: HTML
-        html_output = self.html_agent.generate(user_prompt)
+        html_output = self.html_agent.generate()
 
         # Step 2: CSS
         css_output = self.css_agent.generate(html_output["content"])
