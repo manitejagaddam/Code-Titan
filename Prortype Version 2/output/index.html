@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>to do application with all crud application</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>to do application with all crud application</h1>
+<nav aria-label="Primary navigation">
+<ul>
+<li><button id="add-task-btn" aria-label="Add new task">Add Task</button></li>
+</ul>
+</nav>
+</header>
+<main>
+<section id="todo-list" aria-labelledby="todo-list-title">
+<h2 id="todo-list-title">Todo List</h2>
+<ul id="tasks" aria-live="polite"></ul>
+</section>
+<section id="task-form" aria-labelledby="task-form-title">
+<h2 id="task-form-title">Add / Edit Task</h2>
+<form id="taskForm" autocomplete="off">
+<input type="hidden" id="task-id" name="task-id">
+<div>
+<label for="task-title">Title</label>
+<input type="text" id="task-title" name="task-title" required>
+</div>
+<div>
+<label for="task-desc">Description</label>
+<textarea id="task-desc" name="task-desc"></textarea>
+</div>
+<div>
+<button type="submit" aria-label="Save task">Save</button>
+<button type="button" id="cancel-btn" aria-label="Cancel">Cancel</button>
+</div>
+</form>
+</section>
+</main>
+<footer>
+<p>© 2025 Todo App</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
