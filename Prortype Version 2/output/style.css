@@ -1,180 +1,186 @@
-:root {
-  --primary: #0066cc;
-  --primary-dark: #004999;
-  --bg: #f5f5f5;
-  --surface: #ffffff;
-  --text-primary: #212121;
-  --text-secondary: #424242;
-  --border-radius: 4px;
-  --spacing: 1rem;
-  --spacing-sm: 0.5rem;
-  --font-base: 1rem;
-  --font-size-lg: 1.25rem;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  --bg-color: #fafafa;
+  --primary-color: #00529b;
+  --accent-color: #d93025;
+  --text-color: #222;
+  --border-radius: 4px;
+  --focus-outline: 3px solid #ff9800;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  line-height: 1.5;
-  font-size: var(--font-base);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background: var(--primary);
-  color: var(--surface);
-  padding: var(--spacing);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem;
 }
 
 header h1 {
-  margin: 0;
-  font-size: var(--font-size-lg);
+  font-size: 1.75rem;
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: var(--spacing-sm);
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-nav li {
-  margin: 0;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
 }
 
-button {
-  cursor: pointer;
-  background: var(--primary);
-  color: var(--surface);
-  border: none;
+nav a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm) var(--spacing);
-  font-size: inherit;
-  transition: background 0.2s;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-button:hover,
-button:focus-visible {
-  background: var(--primary-dark);
+nav a:hover::after,
+nav a:focus::after {
+  opacity: 1;
 }
 
-button:focus-visible {
-  outline: 2px solid #ffbf47;
-  outline-offset: 2px;
+nav a:focus {
+  outline: none;
+  box-shadow: var(--focus-outline);
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing);
-  padding: var(--spacing);
+  flex: 1;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 section {
-  background: var(--surface);
-  border-radius: var(--border-radius);
-  flex: 1 1 300px;
-  padding: var(--spacing);
-  min-width: 250px;
+  margin-bottom: 2rem;
 }
 
 section h2 {
-  margin-top: 0;
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-ul#tasks {
+#add-task-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#add-task-form input[type="text"] {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+#add-task-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 82, 155, 0.3);
+}
+
+#add-task-form button {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#add-task-form button:hover,
+#add-task-form button:focus {
+  background-color: #00457c;
+}
+
+#add-task-form button:focus {
+  outline: none;
+  box-shadow: var(--focus-outline);
+}
+
+#tasks-list {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-left: 0;
 }
 
-ul#tasks li {
-  padding: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
+#tasks-list li {
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-ul#tasks li:last-child {
-  margin-bottom: 0;
+#tasks-list li button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-ul#tasks li button {
-  background: var(--primary);
-  color: var(--surface);
-  font-size: 0.875rem;
-  padding: var(--spacing-sm) var(--spacing);
-  border-radius: var(--border-radius);
+#tasks-list li button:hover,
+#tasks-list li button:focus {
+  color: #b71c1c;
 }
 
-ul#tasks li button:hover,
-ul#tasks li button:focus-visible {
-  background: var(--primary-dark);
-}
-
-label {
-  display: block;
-  margin-bottom: var(--spacing-sm);
-  font-weight: 600;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: var(--spacing-sm);
-  border: 1px solid #ccc;
-  border-radius: var(--border-radius);
-  font-size: inherit;
-  margin-bottom: var(--spacing);
-  background: #fafafa;
-}
-
-input[type="text"]:focus,
-textarea:focus {
+#tasks-list li button:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
-}
-
-#cancel-btn {
-  background: #999;
-}
-
-#cancel-btn:hover,
-#cancel-btn:focus-visible {
-  background: #777;
+  box-shadow: var(--focus-outline);
 }
 
 footer {
   text-align: center;
-  padding: var(--spacing);
+  padding: 1rem;
   font-size: 0.875rem;
-  color: var(--text-secondary);
-  background: var(--surface);
+  color: #555;
 }
 
 @media (max-width: 600px) {
-  main {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    font-size: 1rem;
+  }
+  #add-task-form {
     flex-direction: column;
   }
-  section {
-    flex: 1 1 100%;
+  #add-task-form button {
+    width: 100%;
+    margin-top: 0.5rem;
   }
 }

@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>create a youtube clone</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" class="display" readonly>
-        <div class="buttons">
-            <button class="btn function" data-action="clear">C</button>
-            <button class="btn function" data-action="delete">←</button>
-            <button class="btn operator" data-value="÷">÷</button>
-            <button class="btn operator" data-value="×">×</button>
-
-            <button class="btn digit" data-value="7">7</button>
-            <button class="btn digit" data-value="8">8</button>
-            <button class="btn digit" data-value="9">9</button>
-            <button class="btn operator" data-value="-">-</button>
-
-            <button class="btn digit" data-value="4">4</button>
-            <button class="btn digit" data-value="5">5</button>
-            <button class="btn digit" data-value="6">6</button>
-            <button class="btn operator" data-value="+">+</button>
-
-            <button class="btn digit" data-value="1">1</button>
-            <button class="btn digit" data-value="2">2</button>
-            <button class="btn digit" data-value="3">3</button>
-            <button class="btn equals" data-action="calculate">=</button>
-
-            <button class="btn digit" data-value="0" style="grid-column: span 2;">0</button>
-            <button class="btn decimal" data-value=".">.</button>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+<header>
+<h1>create a youtube clone</h1>
+<nav aria-label="Main navigation">
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#subscriptions">Subscriptions</a></li>
+</ul>
+</nav>
+<form role="search" aria-label="Search" action="/search" method="get">
+<input type="search" name="q" placeholder="Search" aria-label="Search videos">
+<button type="submit">Search</button>
+</form>
+</header>
+<main>
+<section id="home" aria-label="Home">
+<h2>Featured Video</h2>
+<div class="video-placeholder" role="img" aria-label="Video preview"></div>
+</section>
+<section id="videos" aria-label="Videos">
+<h2>All Videos</h2>
+<div class="video-list" aria-live="polite"></div>
+</section>
+<section id="subscriptions" aria-label="Subscriptions">
+<h2>Subscriptions</h2>
+<div class="subscription-list" aria-live="polite"></div>
+</section>
+</main>
+<footer>
+<p>&copy; 2025 create a youtube clone</p>
+</footer>
+<script src="app.js"></script>
 </body>
 </html>
