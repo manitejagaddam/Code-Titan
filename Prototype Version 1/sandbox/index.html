@@ -2,41 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>create a youtube clone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-<h1>create a youtube clone</h1>
+<h1>Calculator</h1>
 <nav aria-label="Main navigation">
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#videos">Videos</a></li>
-<li><a href="#subscriptions">Subscriptions</a></li>
+<li><a href="#calculator">Calculator</a></li>
 </ul>
 </nav>
-<form role="search" aria-label="Search" action="/search" method="get">
-<input type="search" name="q" placeholder="Search" aria-label="Search videos">
-<button type="submit">Search</button>
-</form>
 </header>
-<main>
-<section id="home" aria-label="Home">
-<h2>Featured Video</h2>
-<div class="video-placeholder" role="img" aria-label="Video preview"></div>
-</section>
-<section id="videos" aria-label="Videos">
-<h2>All Videos</h2>
-<div class="video-list" aria-live="polite"></div>
-</section>
-<section id="subscriptions" aria-label="Subscriptions">
-<h2>Subscriptions</h2>
-<div class="subscription-list" aria-live="polite"></div>
+<main id="calculator" aria-label="Calculator">
+<section class="display" role="textbox" aria-readonly="true" aria-live="polite" id="display">0</section>
+<section class="keys">
+<div class="key-row">
+<button type="button" data-action="clear" aria-label="Clear">C</button>
+<button type="button" data-action="delete" aria-label="Delete">←</button>
+<button type="button" data-action="divide" aria-label="Divide by">÷</button>
+<button type="button" data-action="multiply" aria-label="Multiply by">×</button>
+</div>
+<div class="key-row">
+<button type="button" data-digit="7" aria-label="Seven">7</button>
+<button type="button" data-digit="8" aria-label="Eight">8</button>
+<button type="button" data-digit="9" aria-label="Nine">9</button>
+<button type="button" data-action="subtract" aria-label="Subtract">−</button>
+</div>
+<div class="key-row">
+<button type="button" data-digit="4" aria-label="Four">4</button>
+<button type="button" data-digit="5" aria-label="Five">5</button>
+<button type="button" data-digit="6" aria-label="Six">6</button>
+<button type="button" data-action="add" aria-label="Add">+</button>
+</div>
+<div class="key-row">
+<button type="button" data-digit="1" aria-label="One">1</button>
+<button type="button" data-digit="2" aria-label="Two">2</button>
+<button type="button" data-digit="3" aria-label="Three">3</button>
+<button type="button" data-action="equals" aria-label="Equals">=</button>
+</div>
+<div class="key-row">
+<button type="button" data-digit="0" aria-label="Zero" class="zero">0</button>
+<button type="button" data-decimal="decimal" aria-label="Decimal point">.</button>
+</div>
 </section>
 </main>
 <footer>
-<p>&copy; 2025 create a youtube clone</p>
+<p>&copy; 2025 Calculator</p>
 </footer>
 <script src="app.js"></script>
 </body>

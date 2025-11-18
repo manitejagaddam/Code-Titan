@@ -1,44 +1,115 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const videos = [
-    {id: 1, title: 'JavaScript Basics', channel: 'Code Academy', thumbnail: 'https://via.placeholder.com/120x90?text=JS', desc: 'Learn JS basics'},
-    {id: 2, title: 'Advanced CSS', channel: 'Design Hub', thumbnail: 'https://via.placeholder.com/120x90?text=CSS', desc: 'Deep dive into CSS'},
-    {id: 3, title: 'Node.js Tutorial', channel: 'Dev Talk', thumbnail: 'https://via.placeholder.com/120x90?text=Node', desc: 'Node.js for beginners'},
-    {id: 4, title: 'React Components', channel: 'Front End', thumbnail: 'https://via.placeholder.com/120x90?text=React', desc: 'Building React components'}
-  ];
-  const subscriptions = [
-    {name: 'Code Academy', avatar: 'https://via.placeholder.com/50?text=CA'},
-    {name: 'Design Hub', avatar: 'https://via.placeholder.com/50?text=DH'},
-    {name: 'Dev Talk', avatar: 'https://via.placeholder.com/50?text=DT'}
-  ];
-  const videoListEl = document.querySelector('.video-list');
-  const subscriptionListEl = document.querySelector('.subscription-list');
-  const featuredEl = document.querySelector('.video-placeholder');
-  const searchForm = document.querySelector('form[role="search"]');
-  function renderVideos(list) {
-    videoListEl.innerHTML = '';
-    list.forEach(v => {
-      const div = document.createElement('div');
-      div.className = 'video-item';
-      div.innerHTML = `<img src="${v.thumbnail}" alt="${v.title}"><div class="info"><h3>${v.title}</h3><p>${v.channel}</p></div>`;
-      videoListEl.appendChild(div);
-    });
+const display = document.getElementById('display');
+let currentOperand = '0';
+let previousOperand = '';
+let operator = null;
+
+function updateDisplay() {
+  display.textContent = currentOperand;
+}
+
+function resetCalculator() {
+  currentOperand = '0';
+  previousOperand = '';
+  operator = null;
+  updateDisplay();
+}
+
+function deleteDigit() {
+  if (currentOperand.length === 1 || (currentOperand.length === 2 && currentOperand.startsWith('-'))) {
+    currentOperand = '0';
+  } else {
+    currentOperand = currentOperand.slice(0, -1);
   }
-  function renderSubscriptions() {
-    subscriptionListEl.innerHTML = '';
-    subscriptions.forEach(s => {
-      const div = document.createElement('div');
-      div.className = 'subscription-item';
-      div.innerHTML = `<img src="${s.avatar}" alt="${s.name}"><p>${s.name}</p>`;
-      subscriptionListEl.appendChild(div);
-    });
+  updateDisplay();
+}
+
+function appendDigit(digit) {
+  if (currentOperand === '0') {
+    currentOperand = digit;
+  } else {
+    currentOperand += digit;
   }
-  renderVideos(videos);
-  renderSubscriptions();
-  featuredEl.innerHTML = `<h3>${videos[0].title}</h3><p>Featured from ${videos[0].channel}</p>`;
-  searchForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const q = searchForm.q.value.toLowerCase();
-    const filtered = videos.filter(v => v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q));
-    renderVideos(filtered);
-  });
-});
+  updateDisplay();
+}
+
+function appendDecimal() {
+  if (!currentOperand.includes('.')) {
+    currentOperand += '.';
+  }
+  updateDisplay();
+}
+
+function setOperator(op) {
+  if (operator && previousOperand) {
+    compute();
+  }
+  previousOperand = currentOperand;
+  operator = op;
+  currentOperand = '0';
+  updateDisplay();
+}
+
+function compute() {
+  if (!operator || !previousOperand) return;
+  const prev = parseFloat(previousOperand);
+  const current = parseFloat(currentOperand);
+  let result;
+  switch (operator) {
+    case 'divide':
+      result = prev / current;
+      break;
+    case 'multiply':
+      result = prev * current;
+      break;
+    case 'add':
+      result = prev + current;
+      break;
+    case 'subtract':
+      result = prev - current;
+      break;
+    default:
+      return;
+  }
+  if (!isFinite(result)) {
+    currentOperand = 'Error';
+  } else {
+    currentOperand = result.toString();
+  }
+  previousOperand = '';
+  operator = null;
+  updateDisplay();
+}
+
+function handleButtonClick(e) {
+  const btn = e.target;
+  const digit = btn.dataset.digit;
+  const action = btn.dataset.action;
+  const decimal = btn.dataset.decimal;
+  if (digit !== undefined) {
+    appendDigit(digit);
+  } else if (decimal !== undefined) {
+    appendDecimal();
+  } else if (action !== undefined) {
+    switch (action) {
+      case 'clear':
+        resetCalculator();
+        break;
+      case 'delete':
+        deleteDigit();
+        break;
+      case 'divide':
+      case 'multiply':
+      case 'add':
+      case 'subtract':
+        setOperator(action);
+        break;
+      case 'equals':
+        compute();
+        break;
+    }
+  }
+}
+
+document.querySelectorAll('button').forEach(btn => btn.addEventListener('click', handleButtonClick));
+
+resetCalculator();
